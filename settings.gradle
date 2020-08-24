@@ -1,0 +1,3 @@
+include ':tkutils'
+include ':app'
+rootProject.name = "TKUitls"
