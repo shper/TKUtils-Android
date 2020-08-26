@@ -14,9 +14,9 @@ import android.util.DisplayMetrics
  * @param dpValue 尺寸dip
  * @return 像素值
  */
-fun Context.tk_dp2px(dpValue: Float): Float {
+fun Context.tk_dp2px(dpValue: Float): Int {
   val scale: Float = resources.displayMetrics.density
-  return dpValue * scale
+  return (dpValue * scale + 0.5f).toInt()
 }
 
 /**
@@ -25,9 +25,9 @@ fun Context.tk_dp2px(dpValue: Float): Float {
  * @param pxValue 尺寸像素
  * @return DIP值
  */
-fun Context.tk_px2dp(pxValue: Float): Float {
+fun Context.tk_px2dp(pxValue: Float): Int {
   val scale: Float = resources.displayMetrics.density
-  return pxValue / scale
+  return (pxValue / scale + 0.5f).toInt()
 }
 
 /**
@@ -36,9 +36,9 @@ fun Context.tk_px2dp(pxValue: Float): Float {
  * @param pxValue 尺寸像素
  * @return SP值
  */
-fun Context.tk_px2sp(pxValue: Float): Float {
+fun Context.tk_px2sp(pxValue: Float): Int {
   val fontScale: Float = resources.displayMetrics.scaledDensity
-  return pxValue / fontScale
+  return (pxValue / fontScale + 0.5f).toInt()
 }
 
 /**
@@ -47,9 +47,9 @@ fun Context.tk_px2sp(pxValue: Float): Float {
  * @param spValue SP值
  * @return 像素值
  */
-fun Context.tk_sp2px(spValue: Float): Float {
+fun Context.tk_sp2px(spValue: Float): Int {
   val fontScale: Float = resources.displayMetrics.scaledDensity
-  return spValue * fontScale
+  return (spValue * fontScale + 0.5f).toInt()
 }
 
 /**

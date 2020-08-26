@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 ext {
-    version_name = "0.1.0"
+    version_name = "0.2.0"
     version_code = 100000
 }
 
@@ -20,6 +20,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
+
+    resourcePrefix "tkui_"
 
     sourceSets {
         main {
