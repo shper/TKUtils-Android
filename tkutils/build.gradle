@@ -3,8 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 ext {
-    version_name = "0.2.0"
+    version_name = "0.3.0"
     version_code = 100000
+    groupId = "cn.shper"
+    artifactId = "tkutils"
 }
 
 android {
@@ -49,19 +51,48 @@ dependencies {
 
 apply plugin: 'tk-maven'
 tkmaven {
-    groupId = "cn.shper"
-    artifactId = "tkutils"
+    groupId = project.groupId
+    artifactId = project.artifactId
     version = version_name
 
-    bintray {
-        repo = "maven"
-        userOrg = "shper"
-        name = "TKUtils"
-        desc = "Utils for android"
-        websiteUrl = "https://www.shper.cn"
-        vcsUrl = "https://github.com/shper"
+    signing = true
+
+    repository {
+        url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
 
         sourcesJar = true
         javadocJar = true
+    }
+
+    snapshotRepository {
+        url = "./../.repo-snapshot"
+
+        authable = false
+        sourcesJar = true
+        javadocJar = true
+    }
+
+    pom {
+        name = project.artifactId
+        description = "Utils for android"
+        url = "https://github.com/shper/TKUtils-Android"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = "me@shper.cn"
+                name = "shper"
+                email = "me@shper.cn"
+            }
+        }
+        scm {
+            connection = "scm:git:github.com/shper/TKUtils-Android"
+            developerConnection = "scm:git:ssh://github.com/shper/TKUtils-Android"
+            url = "https://github.com/shper/TKUtils-Android/tree/master"
+        }
     }
 }
